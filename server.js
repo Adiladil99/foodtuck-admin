@@ -9,7 +9,7 @@ const cors = require("cors");
 const AdminJSSequelize = require('@adminjs/sequelize')
 const adminOptions = require("./app/admin");
 
-const PORT = process.env.PORT || 3019;
+const PORT = process.env.PORT || 8083;
 // const PORT = process.env.PORT || 3000;
 const DEFAULT_ADMIN = {
   email: 'admin@example.com',
