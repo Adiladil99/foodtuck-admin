@@ -25,6 +25,25 @@ exports.discounts = (req, res) => {
     });
 };
 
+exports.search = (req, res) => {
+  let text = req.query.text
+  db.product.findAll({
+    where: {
+      name: {
+        [Op.like]: `%${text}%`
+      }
+    }
+  })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Нет данных."
+      });
+    });
+};
 exports.categories = (req, res) => {
   db.category.findAll()
     .then(data => {
