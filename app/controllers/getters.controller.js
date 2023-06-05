@@ -25,6 +25,19 @@ exports.discounts = (req, res) => {
     });
 };
 
+exports.categories = (req, res) => {
+  db.category.findAll()
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Нет данных."
+      });
+    });
+};
+
 exports.tables = (req, res) => {
   // db.table.findAll()
   //   .then(data => {
